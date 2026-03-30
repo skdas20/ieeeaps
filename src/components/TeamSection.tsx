@@ -438,7 +438,9 @@ const MemberCard = ({ member, index }: { member: typeof MEMBERS[0]; index: numbe
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+              className={`w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 ${
+                member.name === "Sumit Kumar Das" ? "object-[center_15%] md:object-center" : ""
+              }`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/20 to-transparent" />
 

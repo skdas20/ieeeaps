@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(powershell -Command \"Copy-Item ''D:\\\\CODES\\\\claude\\\\APS\\\\satalite.glb'' ''D:\\\\CODES\\\\claude\\\\APS\\\\public\\\\satellite.glb''\")",
+      "Bash(powershell -Command \"New-Item -ItemType Directory -Path ''D:\\\\CODES\\\\claude\\\\APS\\\\public'' -Force; Copy-Item ''D:\\\\CODES\\\\claude\\\\APS\\\\satalite.glb'' ''D:\\\\CODES\\\\claude\\\\APS\\\\public\\\\satellite.glb''\")",
+      "Bash(npm list:*)"
+    ]
+  }
+}

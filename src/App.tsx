@@ -343,32 +343,69 @@ export default function App() {
               <Network size={18} className="cursor-pointer hover:text-primary transition-colors" />
               <Terminal size={18} className="cursor-pointer hover:text-primary transition-colors" />
             </div>
-            <button className="bg-primary text-on-primary font-label uppercase tracking-widest text-[10px] px-6 py-2.5 font-black hover:bg-white transition-all active:scale-95 glow-primary">
+            <button className="hidden md:block bg-primary text-on-primary font-label uppercase tracking-widest text-[10px] px-6 py-2.5 font-black hover:bg-white transition-all active:scale-95 glow-primary">
               Join Chapter
             </button>
             <button 
-              className="md:hidden text-primary"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-primary hover:text-white transition-colors p-2"
+              onClick={() => setMobileMenuOpen(true)}
             >
-              {mobileMenuOpen ? <X /> : <Menu />}
+              <Menu />
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden absolute top-full left-0 w-full bg-surface-container-high border-b border-primary/20 p-8 flex flex-col gap-6"
-          >
-            <a href="#" className="font-label uppercase text-xs tracking-widest text-primary">Home</a>
-            <a href="#about" className="font-label uppercase text-xs tracking-widest text-on-surface">About</a>
-            <a href="#events" className="font-label uppercase text-xs tracking-widest text-on-surface">Events</a>
-            <a href="#team" className="font-label uppercase text-xs tracking-widest text-on-surface">Team</a>
-            <a href="#contact" className="font-label uppercase text-xs tracking-widest text-on-surface">Contact</a>
-          </motion.div>
-        )}
+        {/* Mobile Menu Sidebar */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <>
+              {/* Overlay */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileMenuOpen(false)}
+                className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[95]"
+              />
+              
+              {/* Sidebar content */}
+              <motion.div 
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="md:hidden fixed top-0 right-0 w-[80%] max-w-sm h-screen bg-surface border-l border-primary/20 p-8 flex flex-col gap-8 z-[100] shadow-2xl"
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <div className="text-xl font-black tracking-tighter text-primary font-headline">
+                    APS <span className="text-white">IEM</span>
+                  </div>
+                  <button 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-on-surface-variant hover:text-primary transition-colors p-2 -mr-2"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+                
+                <div className="flex flex-col gap-6">
+                  <a href="#" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-primary border-b border-primary/20 pb-4">Home</a>
+                  <a href="#about" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-on-surface hover:text-primary transition-colors border-b border-outline-variant/10 pb-4">About</a>
+                  <a href="#events" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-on-surface hover:text-primary transition-colors border-b border-outline-variant/10 pb-4">Events</a>
+                  <a href="#benefits" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-on-surface hover:text-primary transition-colors border-b border-outline-variant/10 pb-4">Benefits</a>
+                  <a href="#team" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-on-surface hover:text-primary transition-colors border-b border-outline-variant/10 pb-4">Team</a>
+                  <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="font-label uppercase text-xs tracking-widest text-on-surface hover:text-primary transition-colors border-b border-outline-variant/10 pb-4">Contact</a>
+                </div>
+
+                <div className="mt-auto pb-4">
+                  <button onClick={() => setMobileMenuOpen(false)} className="w-full bg-primary text-on-primary font-label uppercase tracking-widest text-[10px] px-6 py-4 font-black hover:bg-white transition-all active:scale-[0.98] glow-primary">
+                    Join Chapter
+                  </button>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Hero Section */}
@@ -772,7 +809,7 @@ export default function App() {
                 <img 
                   src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
                   alt="map" 
-                  className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover object-[70%_40%] scale-[2.2] opacity-40 group-hover:scale-[2.4] transition-transform duration-1000 origin-center"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-primary/5 pointer-events-none" />

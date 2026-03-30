@@ -42,7 +42,7 @@ const MEMBERS = [
     ],
     certifications: [],
     email: "sohamkarak005@gmail.com",
-    linkedin: "#",
+    linkedin: "https://linkedin.com/in/soham-karak",
   },
   {
     name: "Satwik Khan",
@@ -83,7 +83,7 @@ const MEMBERS = [
     ],
     certifications: [],
     email: "skdas5405@gmail.com",
-    linkedin: "#",
+    linkedin: "https://linkedin.com/in/sumitkumardas-ai",
     github: "skdas20",
   },
   {
@@ -103,7 +103,7 @@ const MEMBERS = [
     experience: ["IEEE Member", "Event Organizing"],
     certifications: ["AI Courses", "NPTEL (Chemistry, Soft Skills)"],
     email: "Saniyadey2005@gmail.com",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/saniya-dey",
   },
   {
     name: "Shrijita Lo",
@@ -123,7 +123,7 @@ const MEMBERS = [
     experience: ["IEEE Member", "Event Organizing"],
     certifications: [],
     email: "shrijitalo5@gmail.com",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/shrijita-lo",
   },
 
   /* ── Core Committee ── */
@@ -215,7 +215,7 @@ const MEMBERS = [
     ],
     certifications: [],
     email: "ddebraj496@gmail.com",
-    linkedin: "https://www.linkedin.com/in/debraj-debnath",
+    linkedin: "https://www.linkedin.com/in/debraj-debnath-b28a3a30a",
   },
 ];
 
@@ -295,9 +295,9 @@ const MemberModal = ({ member, onClose }: { member: typeof MEMBERS[0]; onClose: 
 
               {/* Social links */}
               <div className="flex gap-3">
-                {member.linkedin && member.linkedin !== "#" && (
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center border border-outline-variant/20 text-on-surface-variant/50 hover:text-primary hover:border-primary/40 transition-all">
+                {member.linkedin && (
+                  <a href={member.linkedin} target={member.linkedin !== "#" ? "_blank" : "_self"} rel="noopener noreferrer"
+                    className="w-8 h-8 flex items-center justify-center border border-outline-variant/20 text-on-surface-variant/50 hover:text-primary hover:border-primary/40 transition-all cursor-pointer">
                     <Linkedin size={14} />
                   </a>
                 )}

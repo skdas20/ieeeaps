@@ -277,7 +277,7 @@ const MemberModal = ({ member, onClose }: { member: typeof MEMBERS[0]; onClose: 
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary" />
@@ -434,11 +434,11 @@ const MemberCard = ({ member, index }: { member: typeof MEMBERS[0]; index: numbe
           <div className="card-scan-line opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Photo area */}
-          <div className="relative shrink-0 h-72 sm:h-56 lg:h-52 overflow-hidden">
+          <div className="relative shrink-0 h-52 overflow-hidden">
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover object-top grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+              className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/20 to-transparent" />
 
